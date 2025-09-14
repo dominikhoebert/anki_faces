@@ -10,9 +10,12 @@ class Face:
 
     @staticmethod
     def read_in(filename: str):
-        parts = filename.split('_')
-        group = parts[2].split('.')[0]
-        return Face(parts[1], parts[0], group, filename)
+        #remove file extension
+        croped = filename.split('.')[0]
+        parts = croped.split('_')
+        group = None
+        firstname = " ".join(parts[2:])
+        return Face(firstname, parts[1], group, filename)
 
     def __str__(self):
         return f'{self.firstname} {self.lastname} ({self.group})'
